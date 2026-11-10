@@ -15,7 +15,7 @@ async function cjitAtcConfiguration(env){
  const sections={};
  for(const row of (q.results||[])){try{let record=JSON.parse(row.data),out={};for(let key of CJIT_ATC_SIM_PUBLIC[row.section]||[]){let v=record[key];if(['string','number','boolean'].includes(typeof v)||Array.isArray(v)&&v.length<=100)out[key]=v}sections[row.section]=out}catch{}}
  let audio;try{audio=JSON.parse(a.value)}catch{audio={enabled:true,voice:'clear',detail:'standard',events:{},sounds:{}}}
- return {sim:'atc',version:'v3.1.9',sections,audio};
+ return {sim:'atc',version:'v3.3.9',sections,audio};
 }
 async function cjitAtcAudioAsset(env,id,cors){
  if(!/^[a-f0-9-]{16,64}$/.test(id))return json({error:'Invalid sound identifier'},400,cors);
