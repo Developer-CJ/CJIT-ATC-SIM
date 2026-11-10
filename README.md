@@ -4,7 +4,7 @@
 
 A multi-display air traffic control simulation environment for practicing controller workflows, aircraft communications, radar operations, and scenario management. Developed by **CJIT Solutions / CJIT Networks**.
 
-> **Project status:** Active development. This repository currently holds project documentation; deployed application source and operational integration have not been verified in this repository.
+> **Project status (November 2026):** A snapshot of the deployed ATC v3.1.9 frontend Worker and ATC radio/AI backend is now tracked in `deploy/`. The complete original, modular build sources are not yet imported. Audio/microphone, radar synchronization and other interactive features still require end-to-end tests.
 
 ## Project links
 
@@ -15,7 +15,7 @@ A multi-display air traffic control simulation environment for practicing contro
 | Radar | https://radar.atc.cjitnetworks.com |
 | iPad overhead panel | https://ohp.atc.cjitnetworks.com |
 
-URLs are project targets, **not** proof of live availability.
+The controller page and ATC admin page were verified by browser page-identity checks in November 2026. Other endpoints have automated availability monitoring; HTTP 200 alone does not prove full functional correctness.
 
 ## Product scope
 
@@ -43,7 +43,7 @@ Actual resource bindings, model IDs, deployment commands and usage costs must be
 
 ## Engineering priorities
 
-1. Confirm the deployed codebase and import it into this repository.
+1. Replace the generated Worker snapshots with the full original frontend and backend build source trees.
 2. Validate end-to-end microphone/PTT capture, AI response, TTS playback and fallback audio.
 3. Verify radar updates, controller actions and simulated aircraft state remain synchronized.
 4. Test pop-out panels, mobile/tablet layouts, session persistence and authentication.
@@ -55,7 +55,7 @@ This is a **simulation**. It is not a certified ATC system and must not be used 
 
 ## Development
 
-No build or deploy commands are published yet because this repository does not currently contain a verified application source tree. Add the application code, configuration template (without secrets), dependency lockfile and test instructions before enabling automated deployments.
+The `deploy/` directory contains the production Worker snapshots for the ATC frontend and radio/AI backend. See `docs/deployed-snapshot.md` before deploying. The frontend Worker is generated from an external build pipeline and embeds packaged client assets; this is not a reproducible source build. Do not overwrite production without retaining resource bindings and auditing configuration.
 
 **Branding:** Powered by CJIT  
 **Principle:** Plan. Test. Deliver. Support.
